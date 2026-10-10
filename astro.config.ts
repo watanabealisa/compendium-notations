@@ -16,6 +16,11 @@ import sectionizePlugin from 'remark-sectionize'
 import readingTimePlugin from './src/plugins/readingTimePlugin'
 import config from './src/theme.config'
 
+// https://astro.build/config
+export default defineConfig({
+  site: 'https://watanabealisa.github.io',
+  base: '/compendium-notations',
+  
 export default defineConfig({
   site: config.site,
   integrations: [
