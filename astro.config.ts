@@ -8,6 +8,10 @@ export default defineConfig({
   site: 'https://watanabealisa.github.io',
   base: '/compendium-notations',
   
+  image: {
+    domains: ['images.pexels.com'],
+  },
+
   integrations: [
     mdx(),
     sitemap(),
