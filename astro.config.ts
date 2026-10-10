@@ -1,11 +1,4 @@
 import { defineConfig } from 'astro/config'
-
-// https://astro.build/config
-export default defineConfig({
-  site: 'https://watanabealisa.github.io',
-  base: '/compendium-notations',
-
-import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections'
@@ -21,34 +14,17 @@ export default defineConfig({
   site: 'https://watanabealisa.github.io',
   base: '/compendium-notations',
   
-export default defineConfig({
-  site: config.site,
   integrations: [
-    expressiveCode({
-      themes: config.expressiveCodeThemes,
-      themeCssSelector: (theme) => `[data-mode='${theme.type}']`,
-      defaultProps: {
-        wrap: true,
-        collapseStyle: 'collapsible-end',
-        showLineNumbers: false
-      },
-      plugins: [pluginCollapsibleSections(), pluginLineNumbers()]
-    }),
     mdx(),
-    sitemap()
+    sitemap(),
+    expressiveCode({
+      plugins: [pluginCollapsibleSections(), pluginLineNumbers()],
+    }),
   ],
-
   markdown: {
-    processor: unified({
-      remarkPlugins: [readingTimePlugin, sectionizePlugin]
-    })
+    remarkPlugins: [sectionizePlugin, readingTimePlugin],
   },
-
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
-
-  image: {
-    domains: ['images.pexels.com']
-  }
 })
