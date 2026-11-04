@@ -288,4 +288,6 @@
   .heading-anchor:hover::before {
     @apply text-muted-foreground/75;
   }
+body {
+    background-color: #ffffff !important;}
 }
