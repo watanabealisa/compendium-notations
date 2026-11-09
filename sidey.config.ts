@@ -34,7 +34,6 @@ export const sideyConfig = {
     { label: "Home", href: "/" },
     { label: "Writings", href: "/writings" },
     { label: "About", href: "/about" },
-    { label: "RSS", href: "/rss.xml" },
   ],
 }
 
