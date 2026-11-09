@@ -18,7 +18,7 @@ export const sideyConfig = {
     url: "https://sidey.odhyp.com",
 
     // Your name, utilized in copyright strings and author meta tags
-    author: "Odhy Pradhana",
+    author: "Watanabe Alisa",
 
     // The primary language attribute for HTML accessibility engines (e.g., "en", "id")
     locale: "en",
