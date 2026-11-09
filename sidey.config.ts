@@ -9,7 +9,7 @@ export const sideyConfig = {
    */
   site: {
     // The main title displayed in browser tabs and search engine results
-    title: "Astro Sidey",
+    title: "Compendium Notations",
 
     // A short fallback summary of your site used for SEO and social share cards
     description: "A minimal, content-focused Astro theme for personal sites.",
