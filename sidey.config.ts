@@ -15,7 +15,7 @@ export const sideyConfig = {
     description: "A minimal, content-focused Astro theme for personal sites.",
 
     // The production domain where your site is deployed (no trailing slash)
-    url: "https://sidey.odhyp.com",
+    url: "https://compendium-notations.vercel.app",
 
     // Your name, utilized in copyright strings and author meta tags
     author: "Watanabe Alisa",
