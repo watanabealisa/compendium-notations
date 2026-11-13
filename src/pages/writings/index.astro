@@ -1,15 +1,15 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro"
 import Prose from "@components/common/Prose.astro"
-import WritingCard from "@components/section/writings/WritingCard.astro"
-import { getWritings } from "@utils/getContent"
+import MissiveCard from "@components/section/missives/MissiveCard.astro"
+import { getMissives } from "@utils/getContent"
 
 const {
-  title = "Writings",
-  description = "A collection of writings on things worth exploring.",
+  title = "Missives",
+  description = "A collection of missives on things worth exploring.",
 } = Astro.props
 
-const writingEntries = await getWritings()
+const missiveEntries = await getMissives()
 ---
 
 <BaseLayout title={title} description={description}>
@@ -17,8 +17,8 @@ const writingEntries = await getWritings()
     <h1>Missives</h1>
     <div class="not-prose flex flex-col gap-y-8">
       {
-        writingEntries.map((writingEntry) => (
-          <WritingCard writingEntry={writingEntry} />
+        missiveEntries.map((missiveEntry) => (
+          <MissiveCard missiveEntry={missiveEntry} />
         ))
       }
     </div>
