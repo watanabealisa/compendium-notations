@@ -1,15 +1,12 @@
 ---
 import type { CollectionEntry } from "astro:content"
 
-import { formatDate } from "@utils/formatDate"
-
 interface Props {
   writingEntry: CollectionEntry<"writings">
 }
 
 const { writingEntry } = Astro.props
-const { title, description, date, tags } = writingEntry.data
-const formattedDate = formatDate(date, "medium")
+const { title, description, tags } = writingEntry.data
 ---
 
 <a
@@ -26,8 +23,4 @@ const formattedDate = formatDate(date, "medium")
       <p class="leading-normal text-muted-foreground">{description}</p>
     )
   }
-
-  <div>
-    <span class="text-sm text-muted-foreground">{formattedDate}</span>
-  </div>
 </a>
