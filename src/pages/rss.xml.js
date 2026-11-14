@@ -1,20 +1,20 @@
 import rss from "@astrojs/rss"
 
-import { getWritings } from "@utils/getContent"
+import { getMissives } from "@utils/getContent"
 import { config } from "@parseConfig"
 
 export async function GET(context) {
-  const writings = await getWritings()
+  const missives = await getMissives()
 
   return rss({
     title: config.site.title,
     description: config.site.description,
     site: context.site,
-    items: writings.map((writing) => ({
-      title: writing.data.title,
-      description: writing.data.description,
-      link: writing.id,
-      pubDate: writing.data.date,
+    items: missives.map((missives) => ({
+      title: missives.data.title,
+      description: missives.data.description,
+      link: missives.id,
+      pubDate: missives.data.date,
     })),
     customData: `<language>${config.site.locale}</language>`,
   })
