@@ -1,41 +1,26 @@
-// sidey.config.ts
+---
+import type { CollectionEntry } from "astro:content"
 
-export const sideyConfig = {
-  /**
-   * Global SEO and Site Identity
-   * -------------------------------------------------------------------------
-   * These values populate your HTML meta tags, RSS feed definitions,
-   * and structural header components across the template.
-   */
-  site: {
-    // The main title displayed in browser tabs and search engine results
-    title: "Astro Sidey",
-
-    // A short fallback summary of your site used for SEO and social share cards
-    description: "A minimal, content-focused Astro theme for personal sites.",
-
-    // The production domain where your site is deployed (no trailing slash)
-    url: "https://sidey.odhyp.com",
-
-    // Your name, utilized in copyright strings and author meta tags
-    author: "Odhy Pradhana",
-
-    // The primary language attribute for HTML accessibility engines (e.g., "en", "id")
-    locale: "en",
-  },
-
-  /**
-   * Primary Sidebar Navigation
-   * -------------------------------------------------------------------------
-   * Controls the links rendered inside your fixed navigation panel.
-   * You can add, reorder, or remove objects here to update your site's structure.
-   */
-  navigation: [
-    { label: "Home", href: "/" },
-    { label: "Writings", href: "/writings" },
-    { label: "About", href: "/about" },
-    { label: "RSS", href: "/rss.xml" },
-  ],
+interface Props {
+  writingEntry: CollectionEntry<"writings">
 }
 
-export type SideyConfigType = typeof sideyConfig
+const { writingEntry } = Astro.props
+const { title, description, tags } = writingEntry.data
+---
+
+<a
+  href={`/${writingEntry.collection}/${writingEntry.id}`}
+  class="group -m-4 flex flex-col gap-y-0 rounded-sm bg-card/0 p-4 transition-colors duration-200 ease-out hover:bg-card/75"
+>
+  <h2
+    class="font-medium text-foreground underline decoration-muted-foreground/50 underline-offset-2 transition-colors duration-200 ease-out group-hover:decoration-muted-foreground"
+  >
+    {title}
+  </h2>
+  {
+    description && (
+      <p class="leading-normal text-muted-foreground">{description}</p>
+    )
+  }
+</a>
