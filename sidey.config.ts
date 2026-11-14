@@ -32,7 +32,7 @@ export const sideyConfig = {
    */
   navigation: [
     { label: "Home", href: "/" },
-    { label: "Missives", href: "/Missives" },
+    { label: "Missives", href: "/missives" },
     { label: "About", href: "/about" },
   ],
 }
