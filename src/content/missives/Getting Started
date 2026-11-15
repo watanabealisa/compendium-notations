@@ -1,0 +1,29 @@
+---
+title: "Getting Started"
+description: "Everything you need to install Sidey, configure your site, and publish your first page."
+date: 2026-06-01
+tags: ["sidey", "astro"]
+draft: false
+---
+
+This guide will take you from zero to a running Sidey site, without prior Astro knowledge required.
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org) `v22.12.0` or higher
+- Text editor
+- Terminal
+- [GitHub](https://github.com/login) Account (Optional)
+
+## Installation
+
+Sidey is a GitHub template. Head over to the [astro-sidey](https://github.com/odhyp/astro-sidey) repository and click **Use this template** to create a new repository from it.
+
+Then clone your new repository and install dependencies:
+
+```bash
+git clone [https://github.com/your-username/your-repo.git](https://github.com/your-username/your-repo.git)
+cd your-repo
+npm install
