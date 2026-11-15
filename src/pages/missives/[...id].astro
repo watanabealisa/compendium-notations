@@ -1,13 +1,14 @@
 ---
 import { type CollectionEntry, render } from "astro:content"
 
-import MissivesPage from "@layouts/pages/MissivesPage.astro"
+import BaseLayout from "@layouts/BaseLayout.astro"
+import Prose from "@components/common/Prose.astro"
 import { getMissives } from "@utils/getContent"
 
 export async function getStaticPaths() {
-  const missivesEntries = getMissives()
+  const missivesEntries = await getMissives()
 
-  return (await missivesEntries).map((missivesEntry) => ({
+  return missivesEntries.map((missivesEntry) => ({
     params: { id: missivesEntry.id },
     props: { missivesEntry },
   }))
@@ -19,11 +20,13 @@ interface Props {
 
 const { missivesEntry } = Astro.props
 const { Content, remarkPluginFrontmatter } = await render(missivesEntry)
+
+const { title, description } = missivesEntry.data
 ---
 
-<MissivesPage
-  frontmatter={missivesEntry}
-  readingTime={remarkPluginFrontmatter.minutesRead}
->
-  <Content />
-</MissivesPage>
+<BaseLayout title={title} description={description}>
+  <Prose>
+    <h1>{title}</h1>
+    <Content />
+  </Prose>
+</BaseLayout>
