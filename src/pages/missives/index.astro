@@ -1,26 +1,38 @@
 ---
-import type { CollectionEntry } from "astro:content"
+import BaseLayout from "@layouts/BaseLayout.astro"
+import Prose from "@components/common/Prose.astro"
+import { getMissives } from "@utils/getContent"
 
-interface Props {
-  missiveEntry: CollectionEntry<"missives">
-}
+const {
+  title = "Missives",
+  description = "A collection of missives on things worth exploring.",
+} = Astro.props
 
-const { missiveEntry } = Astro.props
-const { title, description, tags } = missiveEntry.data
+const missiveEntries = await getMissives()
 ---
 
-<a
-  href={`/${missiveEntry.collection}/${missiveEntry.id}`}
-  class="group -m-4 flex flex-col gap-y-0 rounded-sm bg-card/0 p-4 transition-colors duration-200 ease-out hover:bg-card/75"
->
-  <h2
-    class="font-medium text-foreground underline decoration-muted-foreground/50 underline-offset-2 transition-colors duration-200 ease-out group-hover:decoration-muted-foreground"
-  >
-    {title}
-  </h2>
-  {
-    description && (
-      <p class="leading-normal text-muted-foreground">{description}</p>
-    )
-  }
-</a>
+<BaseLayout title={title} description={description}>
+  <Prose>
+    <h1>Missives</h1>
+    <p>{description}</p>
+    <div class="not-prose mt-8 flex flex-col gap-y-8">
+      {
+        missiveEntries.map((missiveEntry) => (
+          <a
+            href={`/${missiveEntry.collection}/${missiveEntry.id}`}
+            class="group -m-4 flex flex-col gap-y-0 rounded-sm bg-card/0 p-4 transition-colors duration-200 ease-out hover:bg-card/75"
+          >
+            <h2 class="font-medium text-foreground underline decoration-muted-foreground/50 underline-offset-2 transition-colors duration-200 ease-out group-hover:decoration-muted-foreground">
+              {missiveEntry.data.title}
+            </h2>
+            {missiveEntry.data.description && (
+              <p class="leading-normal text-muted-foreground">
+                {missiveEntry.data.description}
+              </p>
+            )}
+          </a>
+        ))
+      }
+    </div>
+  </Prose>
+</BaseLayout>
