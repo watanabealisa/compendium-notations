@@ -21,19 +21,7 @@ interface Props {
 const { missivesEntry } = Astro.props
 const { Content } = await render(missivesEntry)
 
-const { title, description, pubDate, date } = missivesEntry.data
-const rawDate = pubDate || date
-
-const formatMonthYear = (dateInput: Date | string | undefined) => {
-  if (!dateInput) return ""
-  const d = new Date(dateInput)
-  if (isNaN(d.getTime())) return ""
-  const month = d.toLocaleDateString("en-US", { month: "short" })
-  const year = d.getFullYear()
-  return `${month}, ${year}`
-}
-
-const formattedDate = formatMonthYear(rawDate)
+const { title, description, date } = missivesEntry.data
 ---
 
 <BaseLayout title={title} description={description}>
@@ -42,9 +30,9 @@ const formattedDate = formatMonthYear(rawDate)
       <h1 class="text-2xl font-semibold tracking-tight text-foreground">
         {title}
       </h1>
-      {formattedDate && (
+      {date && (
         <time class="mt-1 block text-sm text-muted-foreground">
-          {formattedDate}
+          {date}
         </time>
       )}
     </header>
