@@ -1,3 +1,5 @@
+src/pages/missives/index.astro` を以下のコードに書き換えて保存してみてください：
+```astro
 ---
 import BaseLayout from "@layouts/BaseLayout.astro"
 import Prose from "@components/common/Prose.astro"
@@ -7,7 +9,7 @@ const title = "Missives"
 const missiveEntries = await getMissives()
 ---
 
-<BaseLayout title={title} description="">
+<BaseLayout description title="{title}">
   <Prose>
     <h1>Missives</h1>
     <div class="not-prose mt-8 flex flex-col gap-y-8">
@@ -23,11 +25,6 @@ const missiveEntries = await getMissives()
               <h2 class="font-medium text-foreground underline decoration-muted-foreground/50 underline-offset-2 transition-colors duration-200 ease-out group-hover:decoration-muted-foreground">
                 {missiveEntry.data.title}
               </h2>
-              {missiveEntry.data.description && (
-                <p class="leading-normal text-muted-foreground">
-                  {missiveEntry.data.description}
-                </p>
-              )}
               {articleDate && (
                 <time class="text-sm text-muted-foreground">
                   {articleDate}
