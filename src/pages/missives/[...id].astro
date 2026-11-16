@@ -26,14 +26,19 @@ const { title, description, date } = missivesEntry.data
 
 <BaseLayout title={title} description={description}>
   <Prose>
-    <header class="not-prose mb-8">
+    <header class="not-prose mb-8 flex flex-col gap-y-2">
       <h1 class="text-2xl font-semibold tracking-tight text-foreground">
         {title}
       </h1>
       {date && (
-        <time class="mt-1 block text-sm text-muted-foreground">
+        <time class="text-sm text-muted-foreground">
           {date}
         </time>
+      )}
+      {description && (
+        <p class="text-muted-foreground">
+          {description}
+        </p>
       )}
     </header>
     <Content />
