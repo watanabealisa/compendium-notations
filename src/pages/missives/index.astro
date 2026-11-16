@@ -9,16 +9,6 @@ const {
 } = Astro.props
 
 const missiveEntries = await getMissives()
-
-// 日付を「Jun, 2026」形式に変換する関数
-const formatMonthYear = (dateInput: Date | string | undefined) => {
-  if (!dateInput) return ""
-  const date = new Date(dateInput)
-  if (isNaN(date.getTime())) return ""
-  const month = date.toLocaleDateString("en-US", { month: "short" })
-  const year = date.getFullYear()
-  return `${month}, ${year}`
-}
 ---
 
 <BaseLayout title={title} description={description}>
@@ -28,9 +18,8 @@ const formatMonthYear = (dateInput: Date | string | undefined) => {
     <div class="not-prose mt-8 flex flex-col gap-y-8">
       {
         missiveEntries.map((missiveEntry) => {
-          // 記事データから日付を取得（pubDate または date に対応）
-          const rawDate = missiveEntry.data.pubDate || missiveEntry.data.date
-          const formattedDate = formatMonthYear(rawDate)
+          // Markdownに書いた date をそのまま取得
+          const articleDate = missiveEntry.data.date
 
           return (
             <a
@@ -41,9 +30,9 @@ const formatMonthYear = (dateInput: Date | string | undefined) => {
                 <h2 class="font-medium text-foreground underline decoration-muted-foreground/50 underline-offset-2 transition-colors duration-200 ease-out group-hover:decoration-muted-foreground">
                   {missiveEntry.data.title}
                 </h2>
-                {formattedDate && (
+                {articleDate && (
                   <time class="shrink-0 text-sm text-muted-foreground">
-                    {formattedDate}
+                    {articleDate}
                   </time>
                 )}
               </div>
