@@ -16,6 +16,7 @@ const missives = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
+    date: z.string().optional(), // ← ここを追加しました！
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),
