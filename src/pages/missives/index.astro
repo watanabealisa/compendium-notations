@@ -3,18 +3,13 @@ import BaseLayout from "@layouts/BaseLayout.astro"
 import Prose from "@components/common/Prose.astro"
 import { getMissives } from "@utils/getContent"
 
-const {
-  title = "Missives",
-  description = "",
-} = Astro.props
-
+const title = "Missives"
 const missiveEntries = await getMissives()
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description="">
   <Prose>
     <h1>Missives</h1>
-    {description && <p>{description}</p>}
     <div class="not-prose mt-8 flex flex-col gap-y-8">
       {
         missiveEntries.map((missiveEntry) => {
