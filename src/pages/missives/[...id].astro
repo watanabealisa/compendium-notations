@@ -19,14 +19,35 @@ interface Props {
 }
 
 const { missivesEntry } = Astro.props
-const { Content, remarkPluginFrontmatter } = await render(missivesEntry)
+const { Content } = await render(missivesEntry)
 
-const { title, description } = missivesEntry.data
+const { title, description, pubDate, date } = missivesEntry.data
+const rawDate = pubDate || date
+
+const formatMonthYear = (dateInput: Date | string | undefined) => {
+  if (!dateInput) return ""
+  const d = new Date(dateInput)
+  if (isNaN(d.getTime())) return ""
+  const month = d.toLocaleDateString("en-US", { month: "short" })
+  const year = d.getFullYear()
+  return `${month}, ${year}`
+}
+
+const formattedDate = formatMonthYear(rawDate)
 ---
 
 <BaseLayout title={title} description={description}>
   <Prose>
-    <h1>{title}</h1>
+    <header class="not-prose mb-8">
+      <h1 class="text-2xl font-semibold tracking-tight text-foreground">
+        {title}
+      </h1>
+      {formattedDate && (
+        <time class="mt-1 block text-sm text-muted-foreground">
+          {formattedDate}
+        </time>
+      )}
+    </header>
     <Content />
   </Prose>
 </BaseLayout>
