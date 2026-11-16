@@ -9,6 +9,16 @@ const {
 } = Astro.props
 
 const missiveEntries = await getMissives()
+
+// 日付を「Jun, 2026」形式に変換する関数
+const formatMonthYear = (dateInput: Date | string | undefined) => {
+  if (!dateInput) return ""
+  const date = new Date(dateInput)
+  if (isNaN(date.getTime())) return ""
+  const month = date.toLocaleDateString("en-US", { month: "short" })
+  const year = date.getFullYear()
+  return `${month}, ${year}`
+}
 ---
 
 <BaseLayout title={title} description={description}>
@@ -17,21 +27,34 @@ const missiveEntries = await getMissives()
     <p>{description}</p>
     <div class="not-prose mt-8 flex flex-col gap-y-8">
       {
-        missiveEntries.map((missiveEntry) => (
-          <a
-            href={`/${missiveEntry.collection}/${missiveEntry.id}`}
-            class="group -m-4 flex flex-col gap-y-0 rounded-sm bg-card/0 p-4 transition-colors duration-200 ease-out hover:bg-card/75"
-          >
-            <h2 class="font-medium text-foreground underline decoration-muted-foreground/50 underline-offset-2 transition-colors duration-200 ease-out group-hover:decoration-muted-foreground">
-              {missiveEntry.data.title}
-            </h2>
-            {missiveEntry.data.description && (
-              <p class="leading-normal text-muted-foreground">
-                {missiveEntry.data.description}
-              </p>
-            )}
-          </a>
-        ))
+        missiveEntries.map((missiveEntry) => {
+          // 記事データから日付を取得（pubDate または date に対応）
+          const rawDate = missiveEntry.data.pubDate || missiveEntry.data.date
+          const formattedDate = formatMonthYear(rawDate)
+
+          return (
+            <a
+              href={`/${missiveEntry.collection}/${missiveEntry.id}`}
+              class="group -m-4 flex flex-col gap-y-1 rounded-sm bg-card/0 p-4 transition-colors duration-200 ease-out hover:bg-card/75"
+            >
+              <div class="flex items-baseline justify-between gap-x-4">
+                <h2 class="font-medium text-foreground underline decoration-muted-foreground/50 underline-offset-2 transition-colors duration-200 ease-out group-hover:decoration-muted-foreground">
+                  {missiveEntry.data.title}
+                </h2>
+                {formattedDate && (
+                  <time class="shrink-0 text-sm text-muted-foreground">
+                    {formattedDate}
+                  </time>
+                )}
+              </div>
+              {missiveEntry.data.description && (
+                <p class="leading-normal text-muted-foreground">
+                  {missiveEntry.data.description}
+                </p>
+              )}
+            </a>
+          )
+        })
       }
     </div>
   </Prose>
