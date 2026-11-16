@@ -15,30 +15,32 @@ const missiveEntries = await getMissives()
   <Prose>
     <h1>Missives</h1>
     <p>{description}</p>
-    <div class="not-prose mt-8 flex flex-col gap-y-8">
+    <div class="not-prose mt-8 flex flex-col gap-y-6">
       {
         missiveEntries.map((missiveEntry) => {
           const articleDate = missiveEntry.data.date
 
           return (
-            <a
-              href={`/${missiveEntry.collection}/${missiveEntry.id}`}
-              class="group -m-4 flex flex-col gap-y-1.5 rounded-sm bg-card/0 p-4 transition-colors duration-200 ease-out hover:bg-card/75"
-            >
-              <h2 class="font-medium text-foreground underline decoration-muted-foreground/50 underline-offset-2 transition-colors duration-200 ease-out group-hover:decoration-muted-foreground">
-                {missiveEntry.data.title}
+            <div class="group -m-4 flex flex-col gap-y-1.5 rounded-sm bg-card/0 p-4 transition-colors duration-200 ease-out hover:bg-card/75">
+              <h2 class="font-medium">
+                <a
+                  href={`/${missiveEntry.collection}/${missiveEntry.id}`}
+                  class="text-foreground underline decoration-muted-foreground/50 underline-offset-2 transition-colors duration-200 ease-out group-hover:decoration-muted-foreground"
+                >
+                  {missiveEntry.data.title}
+                </a>
               </h2>
               {missiveEntry.data.description && (
-                <p class="leading-normal text-muted-foreground">
+                <p class="text-sm leading-normal text-muted-foreground">
                   {missiveEntry.data.description}
                 </p>
               )}
               {articleDate && (
-                <time class="text-sm text-muted-foreground">
+                <time class="text-xs text-muted-foreground">
                   {articleDate}
                 </time>
               )}
-            </a>
+            </div>
           )
         })
       }
