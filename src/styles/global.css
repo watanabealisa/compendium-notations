@@ -70,22 +70,18 @@
     line-height: 1.75;
   }
 
+  /* 💡 見出し（H1, H2など）に上品な下線を引くスタイル */
+  h1, h2, h3 {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+  }
+
   /* 記事内の段落や説明文（日本語）だけを少し小さくする設定 */
   article p, 
   article li, 
   .description {
     font-size: 0.875rem;
-  }
-
-  /* 💡 追加：H1（タイトル）や見出しの下に自動で入る線を消す */
-  h1 {
-    border-bottom: none !important;
-    padding-bottom: 0 !important;
-  }
-  
-  article > h1::after,
-  article > h1::before {
-    display: none !important;
   }
 
   a {
