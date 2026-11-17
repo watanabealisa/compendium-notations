@@ -1,3 +1,4 @@
+
 ---
 import type { CollectionEntry } from "astro:content"
 
@@ -6,7 +7,7 @@ interface Props {
 }
 
 const { missivesEntry } = Astro.props
-const { title, description, tags } = missivesEntry.data
+const { title, description, date } = missivesEntry.data
 ---
 
 <a
@@ -21,6 +22,14 @@ const { title, description, tags } = missivesEntry.data
   {
     description && (
       <p class="leading-normal text-muted-foreground">{description}</p>
+    )
+  }
+
+  {
+    date && (
+      <div>
+        <span class="text-sm text-muted-foreground">{date}</span>
+      </div>
     )
   }
 </a>
