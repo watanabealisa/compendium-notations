@@ -31,35 +31,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* font-sizeは標準（16px）に戻すので、全体が小さくなりません */
-  }
-
-  body {
-    background-color: var(--background) !important;
-    color: var(--foreground);
-    font-family: sans-serif; /* ブラウザ標準フォント */
-    line-height: 1.75;
-  }
-
-  /* 記事内の段落や説明文（日本語）だけを少し小さくする設定 */
-  article p, 
-  article li, 
-  .description {
-    font-size: 0.875rem; /* 約14px相当。お好みで 0.85rem などに微調整可能です */
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-}
-@layer base {
-  html {
-    scroll-behavior: smooth;
     font-size: 87.5%;
   }
 
@@ -68,13 +39,6 @@
     color: var(--foreground);
     font-family: sans-serif;
     line-height: 1.75;
-  }
-
-  /* 💡 見出し（H1, H2など）に上品な下線を引くスタイル */
-  h1, h2, h3 {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.3em;
-    margin-bottom: 1em;
   }
 
   /* 記事内の段落や説明文（日本語）だけを少し小さくする設定 */
