@@ -2,6 +2,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro"
 import Prose from "@components/common/Prose.astro"
+import MissiveCard from "@components/section/missives/MissiveCard.astro"
 import { getMissives } from "@utils/getContent"
 
 const missiveEntries = await getMissives()
@@ -12,34 +13,9 @@ const missiveEntries = await getMissives()
     <h1>Missives</h1>
     <div class="not-prose mt-8 flex flex-col gap-y-8">
       {
-        missiveEntries.map((missiveEntry) => {
-          const articleDate = missiveEntry.data.date
-
-          return (
-            <div class="missive-card -m-4 flex flex-col gap-y-1 rounded-sm p-4 transition-colors duration-200 ease-out hover:bg-[#e6e4d9]">
-              <h2 class="font-medium text-foreground">
-                <a
-                  href={`/${missiveEntry.collection}/${missiveEntry.id}`}
-                  class="missive-title"
-                >
-                  {missiveEntry.data.title}
-                </a>
-              </h2>
-
-              {missiveEntry.data.description && (
-                <p class="leading-normal text-muted-foreground">
-                  {missiveEntry.data.description}
-                </p>
-              )}
-
-              {articleDate && (
-                <time class="text-sm text-muted-foreground">
-                  {articleDate}
-                </time>
-              )}
-            </div>
-          )
-        })
+        missiveEntries.map((missiveEntry) => (
+          <MissiveCard missivesEntry={missiveEntry} />
+        ))
       }
     </div>
   </Prose>
