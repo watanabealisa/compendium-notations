@@ -1,3 +1,4 @@
+
 ---
 import BaseLayout from "@layouts/BaseLayout.astro"
 import Prose from "@components/common/Prose.astro"
@@ -15,33 +16,31 @@ const missiveEntries = await getMissives()
           const articleDate = missiveEntry.data.date
 
           return (
-          <a
-  href={`/${missiveEntry.collection}/${missiveEntry.id}`}
- class="missive-card group -m-4 flex flex-col gap-y-1 rounded-sm p-4 transition-colors duration-200 ease-out hover:bg-[#e6e4d9]"
->
-  <h2 class="font-medium text-foreground transition-colors duration-200 ease-out">
-    {missiveEntry.data.title}
-  </h2>
+            <div class="missive-card -m-4 flex flex-col gap-y-1 rounded-sm p-4 transition-colors duration-200 ease-out hover:bg-[#e6e4d9]">
+              <h2 class="font-medium text-foreground">
+                <a
+                  href={`/${missiveEntry.collection}/${missiveEntry.id}`}
+                  class="missive-title"
+                >
+                  {missiveEntry.data.title}
+                </a>
+              </h2>
+
               {missiveEntry.data.description && (
                 <p class="leading-normal text-muted-foreground">
                   {missiveEntry.data.description}
                 </p>
               )}
-            {articleDate && (
-  <time class="text-sm text-muted-foreground no-underline">
-    {articleDate}
-  </time>
-)}
-            </a>
+
+              {articleDate && (
+                <time class="text-sm text-muted-foreground">
+                  {articleDate}
+                </time>
+              )}
+            </div>
           )
         })
       }
-    </div> 
+    </div>
   </Prose>
 </BaseLayout>
-<style>
-  .missive-card,
-  .missive-card:hover {
-    text-decoration: none !important;
-  }
-</style>
