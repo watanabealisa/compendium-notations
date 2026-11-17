@@ -45,3 +45,10 @@ const missiveEntries = await getMissives()
     text-decoration: none !important;
   }
 </style>
+/* Missives一覧：ホバー時もタイトル・日付に下線を表示しない */
+.prose a.missive-card:hover,
+.prose a.missive-card:hover h2,
+.prose a.missive-card:hover p,
+.prose a.missive-card:hover time {
+  text-decoration: none !important;
+}
