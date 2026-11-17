@@ -48,13 +48,12 @@
     font-size: 0.875rem;
   }
 
-  /* 💡 見出しの下線（テーマの境界線カラー「var(--border)」、太さは1pxですっきりさせる） */
-  article h2,
-  article h3 {
+  /* 💡 Astro Sidey風の上品でスマートな下線（テーマ標準の境界線カラーを使用） */
+  article h2 {
     border-bottom: 1px solid var(--border);
-    padding-bottom: 0.2em;
-    margin-top: 1.5em;
-    margin-bottom: 0.75em;
+    padding-bottom: 0.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 
   a {
