@@ -63,17 +63,11 @@
   .prose a {
     text-decoration: none !important;
   }
-/* Missives：タイトルは常時下線あり */
-.prose a.missive-title {
-  text-decoration: underline !important;
-  text-decoration-color: var(--muted-foreground) !important;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-.prose a:not(.missive-card):hover {
-  text-decoration: underline !important;
-  text-decoration-color: var(--border) !important;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+
+  .prose a:not(.missive-card):hover {
+    text-decoration: underline !important;
+    text-decoration-color: var(--border) !important;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
   }
 }
