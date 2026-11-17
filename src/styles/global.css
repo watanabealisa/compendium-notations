@@ -64,17 +64,10 @@
     text-decoration: none !important;
   }
 
-  .prose a:hover {
-    text-decoration: underline !important;
-    text-decoration-color: var(--border) !important;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
+.prose a:not(.missive-card):hover {
+  text-decoration: underline !important;
+  text-decoration-color: var(--border) !important;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
   }
-}
-/* Missives一覧：ホバー時もカード内に下線を表示しない */
-.prose a.missive-card,
-.prose a.missive-card:hover,
-.prose a.missive-card *,
-.prose a.missive-card:hover * {
-  text-decoration: none !important;
 }
