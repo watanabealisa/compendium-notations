@@ -71,10 +71,10 @@
     text-underline-offset: 3px;
   }
 }
-/* Missives一覧：ホバー時もタイトル・日付に下線を表示しない */
+/* Missives一覧：ホバー時もカード内に下線を表示しない */
+.prose a.missive-card,
 .prose a.missive-card:hover,
-.prose a.missive-card:hover h2,
-.prose a.missive-card:hover p,
-.prose a.missive-card:hover time {
+.prose a.missive-card *,
+.prose a.missive-card:hover * {
   text-decoration: none !important;
 }
