@@ -30,11 +30,12 @@ export const sideyConfig = {
    * Controls the links rendered inside your fixed navigation panel.
    * You can add, reorder, or remove objects here to update your site's structure.
    */
-  navigation: [
-    { label: "Home", href: "/" },
-    { label: "Missives", href: "/missives" },
-    { label: "About", href: "/about" },
-  ],
+navigation: [
+  { label: "Home", href: "/" },
+  { label: "Missives", href: "/missives" },
+  { label: "Oeuvre", href: "/#oeuvre" },
+  { label: "About", href: "/about" },
+],
 }
 
 export type SideyConfigType = typeof sideyConfig
