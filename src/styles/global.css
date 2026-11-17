@@ -30,7 +30,7 @@
 
 @layer base {
   html {
-    scroll-smooth;
+    scroll-behavior: smooth;
     font-size: 87.5%; /* 全体の文字サイズを少し小さく */
   }
 
