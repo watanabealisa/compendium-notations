@@ -15,13 +15,13 @@ const missiveEntries = await getMissives()
           const articleDate = missiveEntry.data.date
 
           return (
-            <a
-              href={`/${missiveEntry.collection}/${missiveEntry.id}`}
-              class="group -m-4 flex flex-col gap-y-1 rounded-sm bg-card/0 p-4 transition-colors duration-200 ease-out hover:bg-card/75"
-            >
-              <h2 class="font-medium text-foreground underline decoration-muted-foreground/50 underline-offset-2 transition-colors duration-200 ease-out group-hover:decoration-muted-foreground">
-                {missiveEntry.data.title}
-              </h2>
+          <a
+  href={`/${missiveEntry.collection}/${missiveEntry.id}`}
+  class="missive-card group -m-4 flex flex-col gap-y-1 rounded-sm bg-card/0 p-4 transition-colors duration-200 ease-out hover:bg-card/75"
+>
+  <h2 class="font-medium text-foreground transition-colors duration-200 ease-out">
+    {missiveEntry.data.title}
+  </h2>
               {missiveEntry.data.description && (
                 <p class="leading-normal text-muted-foreground">
                   {missiveEntry.data.description}
