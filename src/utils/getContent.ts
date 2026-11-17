@@ -6,7 +6,11 @@ import type { CollectionKey, CollectionEntry } from "astro:content"
 type AnyEntry = CollectionEntry<CollectionKey>
 
 // ---------- HELPERS ----------
-const sortByDateDesc = (a: Date, b: Date) => b.getTime() - a.getTime()
+const sortByDateDesc = (a: any, b: any) => {
+  const timeA = a ? new Date(a).getTime() : 0
+  const timeB = b ? new Date(b).getTime() : 0
+  return (isNaN(timeB) ? 0 : timeB) - (isNaN(timeA) ? 0 : timeA)
+}
 
 const excludeDrafts = (item: AnyEntry) => !item.data.draft
 
