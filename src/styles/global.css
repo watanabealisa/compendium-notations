@@ -31,14 +31,21 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-size: 87.5%; /* 全体の文字サイズを少し小さく */
+    /* font-sizeは標準（16px）に戻すので、全体が小さくなりません */
   }
 
   body {
     background-color: var(--background) !important;
     color: var(--foreground);
-    font-family: sans-serif; /* ブラウザ標準のフォント */
+    font-family: sans-serif; /* ブラウザ標準フォント */
     line-height: 1.75;
+  }
+
+  /* 記事内の段落や説明文（日本語）だけを少し小さくする設定 */
+  article p, 
+  article li, 
+  .description {
+    font-size: 0.875rem; /* 約14px相当。お好みで 0.85rem などに微調整可能です */
   }
 
   a {
