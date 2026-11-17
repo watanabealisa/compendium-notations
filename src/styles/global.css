@@ -57,3 +57,43 @@
     text-decoration: underline;
   }
 }
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 87.5%;
+  }
+
+  body {
+    background-color: var(--background) !important;
+    color: var(--foreground);
+    font-family: sans-serif;
+    line-height: 1.75;
+  }
+
+  /* 記事内の段落や説明文（日本語）だけを少し小さくする設定 */
+  article p, 
+  article li, 
+  .description {
+    font-size: 0.875rem;
+  }
+
+  /* 💡 追加：H1（タイトル）や見出しの下に自動で入る線を消す */
+  h1 {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+  
+  article > h1::after,
+  article > h1::before {
+    display: none !important;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
