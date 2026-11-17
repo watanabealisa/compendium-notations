@@ -264,6 +264,9 @@
 
   body {
     @apply bg-background text-foreground selection:bg-accent selection:text-accent-foreground;
+    background-color: #ffffff !important;
+    font-size: 14px; /* ← ここに文字サイズを追加（お好みで 13.5px や 14.5px に調整してください） */
+    line-height: 1.75;
   }
 
   section {
@@ -288,6 +291,7 @@
   .heading-anchor:hover::before {
     @apply text-muted-foreground/75;
   }
+}
 body {
     background-color: #ffffff !important;}
 }
