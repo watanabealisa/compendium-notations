@@ -27,11 +27,11 @@ const missiveEntries = await getMissives()
                   {missiveEntry.data.description}
                 </p>
               )}
-              {articleDate && (
-                <time class="text-sm text-muted-foreground">
-                  {articleDate}
-                </time>
-              )}
+            {articleDate && (
+  <time class="text-sm text-muted-foreground no-underline">
+    {articleDate}
+  </time>
+)}
             </a>
           )
         })
