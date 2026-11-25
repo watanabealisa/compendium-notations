@@ -7,65 +7,50 @@ import Prose from "@components/common/Prose.astro";
   <Prose>
     <h1>Oeuvre</h1>
 
-    <div class="not-prose">
+    <div class="not-prose mt-8">
       <article class="track">
-        <!-- （ここは今のまま一切変更なし） -->
+        <h3>sequence diagram dots</h3>
+        <div class="meta">2016 — CeVIO、VOCALOID、EDM、Funkot、POP</div>
+        
+        <!-- YouTube埋め込み枠 -->
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/mEVTuKA_f2s" 
+            title="sequence diagram dots" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <p class="description">
+          ボーカロイド（CeVIO）特有の透明感と機械的な質感を活かした、リズミカルで疾走感のあるエレクトロニック・ポップチューン。緻密に構築されたトラックとシャープなサウンドデザインが織りなすスタイリッシュな世界観が特徴。
+        </p>
+        <div class="external-links">
+          <span style="color: #18181b;"></span> 
+          <a href="https://n0.com/a/zhxpcvfnf1ri" target="_blank" rel="noopener noreferrer">Streaming ↗</a>
+          <a href="#">Spotify ↗</a>
+          <a href="#">Apple Music ↗</a>
+        </div>
       </article>
 
       <article class="track">
-        <!-- （ここは今のまま一切変更なし） -->
+        <h3>Nocturne for Rhodes &amp; Sampler</h3>
+        <div class="meta">2026 — Electric Piano, Vocal Chop</div>
+        
+        <div class="player-box">
+          <div style="font-size: 0.875rem; color: #71717a;">Spotify / SoundCloud Player</div>
+        </div>
+
+        <p class="description">
+          ローズピアノのコード進行を軸に、自身のソプラノの断片をサンプリングして構築したインストゥルメンタル小品。
+        </p>
       </article>
     </div>
   </Prose>
 </BaseLayout>
 
-
-  <article class="track">
-    <h3>sequence diagram dots</h3>
-    <div class="meta">2016 — CeVIO、VOCALOID、EDM、Funkot、POP</div>
-    
-    <!-- YouTube埋め込み枠 -->
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/mEVTuKA_f2s" 
-        title="sequence diagram dots" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <p class="description">
-     ボーカロイド（CeVIO）特有の透明感と機械的な質感を活かした、リズミカルで疾走感のあるエレクトロニック・ポップチューン。緻密に構築されたトラックとシャープなサウンドデザインが織りなすスタイリッシュな世界観が特徴。    </p>
-<div class="external-links">
-      <span style="color: #18181b;"></span> 
-      <a href="https://n0.com/a/zhxpcvfnf1ri" target="_blank" rel="noopener noreferrer">Streaming ↗</a>
-      <a href="#">Spotify ↗</a>
-      <a href="#">Apple Music ↗</a>
-    </div>
-  </article>
-
-  <article class="track">
-    <h3>Nocturne for Rhodes &amp; Sampler</h3>
-    <div class="meta">2026 — Electric Piano, Vocal Chop</div>
-    
-    <div class="player-box">
-      <div style="font-size: 0.875rem; color: #71717a;">Spotify / SoundCloud Player</div>
-    </div>
-
-    <p class="description">
-      ローズピアノのコード進行を軸に、自身のソプラノの断片をサンプリングして構築したインストゥルメンタル小品。
-    </p>
-  </article>
-</BaseLayout>
-
 <style>
-  h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    margin-bottom: 2.5rem;
-  }
   .track {
     margin-bottom: 4.5rem;
     padding-bottom: 3.5rem;
