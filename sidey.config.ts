@@ -18,7 +18,7 @@ export const sideyConfig = {
     url: "https://compendium-notations.vercel.app",
 
     // Your name, utilized in copyright strings and author meta tags
-    author: "Watanabe Alisa",
+    author: "Compendium Notations",
 
     // The primary language attribute for HTML accessibility engines (e.g., "en", "id")
     locale: "en",
