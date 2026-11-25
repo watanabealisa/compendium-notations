@@ -14,6 +14,7 @@
   --muted-foreground: #6f6e69;
   --primary: #af3029;
   --ring: #af3029;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
 }
 
 .dark {
@@ -38,10 +39,18 @@
   body {
     background-color: var(--background) !important;
     color: var(--foreground);
-    font-family: sans-serif;
+    font-family: var(--font-sans);
     line-height: 1.75;
   }
-
+h1, h2, h3, h4,
+  .prose,
+  .prose h1, .prose h2, .prose h3, .prose h4,
+  article p,
+  article li,
+  .description {
+    font-family: var(--font-sans);
+  }
+  
   /* 記事内の段落や説明文（日本語）だけを少し小さくする設定 */
   article p, 
   article li, 
